@@ -2,23 +2,37 @@ let currentDate = moment().format("dddd, MMMM Do YYYY");
 $("#currentDay").text(currentDate);
 
 
-// function colorCode(){
-//     let currentTime = new Date().getHours();
-//     for (let i = 9; i < 18; i++) { 
-//     console.log(currentTime, $(`#${i}`).data("time"));
-//      if ($(`#${i}`).data("time") == currentTime){
-//         $(`#text${i}`).addClass( "present");
-//     } else if (currentTime < $(`#${i}`).data("time")) {
-//         $(`#text${i}`).addClass( "future");
-//     }
-// }
-// }
 
 function colorCode(){
-    let currentTIme = moment().format('hh')
-    console.log(currentTIme)
-    let slotTime = $('hour');
-    console.log(slotTime.val)
-    }
-
+    let currentTime = moment().format('HH');
+    console.log(currentTime);
+    let timeSlot = $('.time-block');
+    console.log(timeSlot);
+     console.log(timeSlot[0])
+   for (i=0; i<13; i++){
+    let milTime = timeSlot[i].getAttribute('id');
+    if (currentTime===milTime){
+        timeSlot[i].classList.add("present");
+        timeSlot[i].classList.remove("past");
+        timeSlot[i].classList.remove("future");
+        }
+    else if (currentTime>milTime){
+        timeSlot[i].classList.add("past");
+        timeSlot[i].classList.remove("present");
+        timeSlot[i].classList.remove("future");
+            }
+    else if (currentTime<milTime){
+        timeSlot[i].classList.add("future");
+        timeSlot[i].classList.remove("past");
+        timeSlot[i].classList.remove("present");
+                }
+};
+}
 colorCode();
+
+let saveBtn = $('.saveBtn');
+saveBtn.on('click', function(){
+    let eventId = $(this).attr('id');
+    let eventText = $(this).parent().siblings().children('.time-block').val();
+    localStorage.setItem(eventId, eventText);
+});
