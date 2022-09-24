@@ -28,19 +28,15 @@ function colorCode(){
 };
 }
 
-function saveItem(){
-    let plannerEntry = $('time-block').val;
-    let plannerTime = timeslot[i].getAttribute('id');
-    console.log(plannerEntry);
-    console.log(plannerTime)
-}
+// function saveEntry(){
+//     console.log('clicky clicky')
 
+// }
 
 setInterval(colorCode(),1000);
 
-
-saveBtn.click(console.log("i clicked") 
-
-
-
-);
+// saveBtn.on('click', function(){
+//     let eventId = $(this).attr('id');
+//     let eventText = $(this).parent().siblings().children('.time-block').val();
+//     localStorage.setItem(eventId, eventText);
+//   ) 
