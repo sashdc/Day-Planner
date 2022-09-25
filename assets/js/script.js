@@ -34,18 +34,19 @@ $(".saveBtn").on("click", function(){
     schedule.push(scheduleItem)
     localStorage.setItem("To-Do-List", JSON.stringify(schedule));
 
-    let addNot = '<h5>Your Task has been added to localstorage ✅</h5>';
-    // addNot.addClass('justify-content-center')
+    let addNot = '<h6>Your Task has been added to localstorage ✅</h6>';
+    $('h6').addClass('justify-content-center')
     $('.container').prepend(addNot);
-    // setTimeout(addNot.hide(),2000)
+    $('h6').delay(1000).hide(1000)
 });
+
 
 function init() {
     if (localStorage.getItem("To-Do-List") !== null){
         schedule=JSON.parse(localStorage.getItem("To-Do-List"));
         console.log(schedule);
         for (let i=0;i<schedule.length;i++){;
-        $('#saveSlot').innerText=schedule.saveItem  ;
+        $('#saveSlot').textContent=schedule.saveItem  ;
         }
         
         }
