@@ -42,11 +42,11 @@ $(".saveBtn").on("click", function(){
 
 
 function init() {
-    if (localStorage.getItem("To-Do-List") !== null){
+    if (localStorage.getItem("To-Do-List")){
         schedule=JSON.parse(localStorage.getItem("To-Do-List"));
         console.log(schedule);
         for (let i=0;i<schedule.length;i++){;
-        $('#saveSlot').textContent=schedule.saveItem  ;
+        $('#'+schedule[i].saveSlot).text(schedule[i].saveItem) ;
         }
         
         }
